@@ -3,469 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summer Menu | Food Blog</title>
+    <title>Winter Menu | Food Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-    /* CSS Variables */
         :root {
-            --primary-color: #8B0000; /* Dark Red */
-            --secondary-color: #FFD700; /* Gold */
-            --accent-color: #F5F5DC; /* Beige */
+            --primary-color: #3881B9;
+            --secondary-color: #FFD700;
+            --accent-color: #67C3FD;
             --text-dark: #333;
             --text-light: #fff;
-    
         }
-    
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
-    
-     
-            }
-        body { background-color: #67C3FD; font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
-        /* Navigation */
-        .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-      .nav-links {
-      display: flex;
-      gap: 2rem;
-      
-      }
-      
-      .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: color 0.3s;
-      
-      }
-      
-      .nav-links a:hover {
-      color:  #3881B9;
-      
-      }
-        .logo 
-        { 
-         font-size: 2rem;
-         color:  #3881B9; 
-         font-weight: bold; 
-         font-family: 'Brush Script MT', cursive; 
-         }
-         
-        .container 
-        { 
-        padding: 3rem 2rem; 
-        text-align: center;
-         }
-        
-        .section-title 
-        { 
-        font-size: 2.5rem; 
-        color:  white; 
-        margin-bottom: 2rem; }
-        
-        .dish-grid 
-        { 
-        display: grid;
-         grid-template-columns: 
-         repeat(auto-fit, minmax(300px, 1fr)); 
-         gap: 2rem; 
-         max-width: 1200px; 
-         margin: 0 auto; 
-         
-         }
-         
-        .dish-card
-         { background: white; 
-         border-radius: 10px; 
-         overflow: hidden; 
-         box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-         transition: transform 0.3s; 
-         padding: 1rem; }
-         
-        .dish-card:hover 
-        { transform: translateY(-10px); }
-        
-        .dish-img 
-        { width: 100%;
-         height: 200px; 
-         object-fit: cover; 
-         border-radius: 10px; }
-         
-        .dish-content { 
-        padding: 1rem;
-         text-align: left; }
-         
-        .dish-title 
-        { font-size: 1.5rem; 
-        color:  #3881B9; 
-        margin-bottom: 0.5rem; }
-        
-        .dish-details 
-        { font-size: 0.9rem; 
-        color: #555; 
-        margin-bottom: 0.7rem; }
-        
-        .rating 
-        { color: #FFD700;
-         font-size: 1.2rem; 
-         margin-bottom: 0.5rem; }
-         
-        .preview-comments 
-        { font-size: 0.8rem; 
-        font-style: italic; 
-        color: #666; 
-        margin-bottom: 0.5rem; }
-        
-        .cta-btn, .back-btn 
-        { padding: 0.7rem 1.5rem; 
-        background-color: #3881B9; 
-        color: white; 
-        border: none; 
-        border-radius: 25px; 
-        font-size: 1rem; 
-        cursor: pointer; 
-        transition: background-color 0.3s; 
-        display: block; 
-        margin: 1rem auto; 
-        width: 60%; 
-        text-align: center; }
-        
-        .cta-btn:hover, .back-btn:hover { 
-        background-color:  #67C3FD; 
-        color: #333; }
-        
-        .playlist { 
-        margin-top: 2rem; 
-        padding: 2rem; 
-        background:  #3881B9; 
-        color: white; 
-        border-radius: 10px; 
-        text-align: center; }
-        
-        .playlist h3 {
-         margin-bottom: 1rem; 
-         font-size: 1.5rem; }
-        
-        /* Hero Section */
-        .hero { 
-        height: 100vh; 
-        position: relative; 
-        color: white; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        text-align: center; }
-        
-        .hero-overlay { 
-        position: absolute; 
-        width: 100%; 
-        height: 100%; 
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); }
-        
-        .hero-content 
-        { position: relative; 
-        z-index: 2; }
-        
-        .hero-title 
-        { font-size: 3rem; 
-        font-weight: bold; 
-        color: #FFC100;}
-        
-      /* Newsletter Section */
-      .newsletter {
-      background-color: #3881B9;
-      color: var(--text-light);
-      padding: 4rem 2rem;
-      text-align: center;
-      
-      }
-      
-      .newsletter-form {
-      max-width: 600px;
-      margin: 0 auto;
-      
-      
-      
-      }
-      
-      .newsletter-input {
-      width: 70%;
-      padding: 1rem;
-      border: none;
-      border-radius: 25px 0 0 25px;
-      font-size: 1rem;
-      
-      }
-      
-      .newsletter-btn {
-      width: 30%;
-      padding: 1rem;
-      border: none;
-      border-radius: 0 25px 25px 0;
-      background-color: var(--secondary-color);
-      color: var(--text-dark);
-      font-size: 1rem;
-      cursor: pointer;
-      
-      }
-      
-      
-      /* Footer */
-      
-      footer {
-      background-color: var(--text-dark);
-      color: var(--text-light);
-      padding: 3rem 2rem;
-      text-align: center;
-      
-      }
-      
-      .social-icons {
-      margin-bottom: 1.5rem;
-      
-      }
-      
-      .social-icons a {
-      color: var(--text-light);
-      font-size: 1.5rem;
-      margin: 0 1rem;
-      transition: color 0.3s;
-      
-      }
-      
-      .social-icons a:hover {
-      color: var(--secondary-color);
-      
-      }
-      
-      @media (max-width: 768px) 
-      .nav-links {
-      display: none;
-      
-      }
-      
-      .hero-content h1 {
-      
-      font-size: 2.5rem;
-      
-      }
-      
-      
-      .recipe-grid {
-      
-      grid-template-columns: 1fr;
-      
-      }
-      
-      
-      .newsletter-input,
-      
-      .newsletter-btn {
-      
-      width: 100%;
-      
-      border-radius: 25px;
-      
-      margin: 0.5rem 0;
-      
-      }
-      
-      a .cta-btn {
-      text-decoration: none;
-      }
-      
-        
+
+        body {
+            background-color: #67C3FD;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .container {
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dish-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            padding: 1rem;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .dish-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .dish-content {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .dish-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .dish-details {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.7rem;
+        }
+
+        .rating {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-comments {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-btn, .back-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 1rem auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        .cta-btn:hover, .back-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        .playlist {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFC100;
+        }
+
+        .newsletter {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            width: 70%;
+            padding: 1rem;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            width: 30%;
+            padding: 1rem;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dish-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-input,
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 25px;
+                margin: 0.5rem 0;
+            }
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 70px;
+            right: -400px;
+            width: 350px;
+            height: calc(100vh - 70px);
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            padding: 1rem;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .remove-item {
+            color: #ff4444;
+            cursor: pointer;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="logo">FlavourFour</div>
         <div class="nav-links">
-        
-        <a href="#home">Home</a>
-        
-        <a href="#recipes">Recipes</a>
-        
-        <a href="#about">About</a>
-        
-        <a href="#contact">Contact</a>
-        
+            <a href="#home">Home</a>
+            <a href="#recipes">Recipes</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero-section">
+    <div class="cart-modal" id="cart-modal">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+        <button class="cta-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-        <div class="hero-content">
-        <div class="logo-img"> <img src="wlogo.png" width="150px" height="150px"> 
-        <br>
-      <font color="#67C3FD">  <h1>Winter's Comfort</h1> </font>
-        
-        <p>Rich, comforting dishes to keep you warm and satisfied. Embrace the warmth!</p>
-        
-      <a href="Flavour4.html" style="text-decoration: none;">  <button class="cta-btn">Return to Homepage</button> </a>
+            <img src="winter.jpg" alt="Winter" width="150" height="150">
+            <h1 class="hero-title">Winter's Comfort</h1>
+            <p>Rich, comforting dishes to keep you warm and satisfied. Embrace the warmth!</p>
+            <a href="index.html" class="cta-btn">Return to Homepage</a>
         </div>
     </section>
-<section id="recipes">
-    <div class="container">
-    <div class="playlist">
-    <h3>Now Playing: Winter Vibes</h3>
-    <iframe id="playlist-iframe" width="100%" height="80" frameborder="0" allowtransparency="true" allow="autoplay"></iframe>
-  </div>
-  <br>
-  <br>
-        <h2 class="section-title" id="category-title">Top 10 Best Featured Winter Dishes</h2>
-        <div class="dish-grid" id="dish-grid"></div>
 
-      </section>
-    
-    <!-- Newsletter -->
-    
-    <section class="newsletter">
-    
-        <h2>Subscribe to Our Seasonal Newsletter</h2>
-    
-        <form class="newsletter-form">
-    
-            <input type="email" class="newsletter-input" placeholder="Enter your email">
-    
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-    
-        </form>
-    
-    </section>
-    
-    
-    <!-- Footer -->
-    
-    <footer>
-    
-        <div class="social-icons">
-    
-            <a href="#"><i class="fab fa-instagram"></i></a>
-    
-            <a href="#"><i class="fab fa-pinterest"></i></a>
-    
-            <a href="#"><i class="fab fa-facebook"></i></a>
-    
-            <a href="#"><i class="fab fa-twitter"></i></a>
-    
+    <section id="recipes" class="container">
+        <div class="playlist">
+            <h3>Now Playing: Winter Vibes</h3>
+            <iframe id="playlist-iframe" width="100%" height="80" frameborder="0" allow="autoplay"></iframe>
         </div>
-    
+        <h2 class="section-title">Top 10 Best Featured Winter Dishes</h2>
+        <div class="dish-grid" id="dish-grid"></div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Subscribe to Our Seasonal Newsletter</h2>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
         <p>&copy; 2025 FlavourFour. All rights reserved.</p>
-    
     </footer>
 
     <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
         const dishes = {
-            spring: [
-                { title: "Parmesan Spring Chicken", image: "s1.jpeg", rating: 4.5, 
-                  details: "a crispy, golden-browned dish with a savory Parmesan crust, infused with fresh herbs and a hint of lemon,.", comments: ["So fresh!", "Perfect for spring."] },
-                { title: "One-pan Salmon with Roast Asparagus", image: "s2.jpeg", rating: 4.7, 
-                  details: "Tender salmon and crisp asparagus roasted together in one pan for a quick, flavorful meal.", comments: ["Delicious!", "Best salmon ever."] },
-            ,{ title: "Rhubarb crumble", image: "s3.jpeg", rating: 4.5, 
-            details: "A perfect balance of tart and sweet, featuring tender rhubarb beneath a golden, buttery crumble..", comments: ["So fresh!", "Perfect for spring."] },
-            { title: "Asparagus Risotto", image: "https://images.unsplash.com/photo-1585238342028-9c5a3c72195b", rating: 4.7, 
-            details: "Creamy risotto with tender asparagus and parmesan.", comments: ["Delicious!", "Best risotto ever."] },
-            { title: "Spring Green Salad", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187", rating: 4.5, 
-            details: "A refreshing mix of greens, nuts, and a light vinaigrette.", comments: ["So fresh!", "Perfect for spring."] },
-            { title: "Asparagus Risotto", image: "https://images.unsplash.com/photo-1585238342028-9c5a3c72195b", rating: 4.7, 
-            details: "Creamy risotto with tender asparagus and parmesan.", comments: ["Delicious!", "Best risotto ever."] },
-            { title: "Spring Green Salad", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187", rating: 4.5, 
-            details: "A refreshing mix of greens, nuts, and a light vinaigrette.", comments: ["So fresh!", "Perfect for spring."] },
-            { title: "Asparagus Risotto", image: "https://images.unsplash.com/photo-1585238342028-9c5a3c72195b", rating: 4.7, 
-            details: "Creamy risotto with tender asparagus and parmesan.", comments: ["Delicious!", "Best risotto ever."] },
-            { title: "Spring Green Salad", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187", rating: 4.5, 
-            details: "A refreshing mix of greens, nuts, and a light vinaigrette.", comments: ["So fresh!", "Perfect for spring."] },
-            { title: "Spring Green Salad", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187", rating: 4.5, 
-            details: "A refreshing mix of greens, nuts, and a light vinaigrette.", comments: ["So fresh!", "Perfect for spring."] },
-             
-            ],
+            winter: [
+                { 
+                    title: "Beef Stew", 
+                    image: "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/09/Beef-Stew-9-720x1080.jpg", 
+                    price: 18.99,
+                    rating: 4.8, 
+                    details: "Hearty beef stew with root vegetables", 
+                    comments: ["Perfect comfort food!", "Love this recipe"]
+                },
+                { 
+                    title: "Chicken Pot Pie", 
+                    image: "https://tastesbetterfromscratch.com/wp-content/uploads/2022/10/Chicken-Pot-Pie24-1-768x1176.jpg", 
+                    price: 16.99,
+                    rating: 4.7, 
+                    details: "Flaky crust with creamy chicken filling", 
+                    comments: ["Family favorite!", "Great for cold nights"]
+                },
+                { 
+                    title: "Grilled Cheese Sandwich", 
+                    image: "https://www.allrecipes.com/thmb/2dWAaJGEaeaYYjOjk_z_RXs1trg=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/grilled-cheese-sandwich-a52728bf8fe64452b3df74f0e16df73e.jpg", 
+                    price: 1.99,
+                    rating: 4.1, 
+                    details: "a hot cheese sandwich typically prepared by heating slices of cheese between slices of bread", 
+                    comments: ["CHEEZY YEEZY TIM CHEESE FAVORITE"]
+                },
+                { 
+                    title: "Mac and Cheese", 
+                    image: "https://www.allrecipes.com/thmb/ZgoWpdyNziyrnerNv8o4WaApAm0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/11679-Homemade-Mac-and-Cheese-2000-fe348764d2d34223a98928821a8c69ca.jpg", 
+                    price: 12.99,
+                    rating: 3.7, 
+                    details: "is a dish of macaroni pasta and a cheese sauce, most commonly cheddar sauce.", 
+                    comments: ["CHEEZY CHEEZE LOVED BY CHEESY PERSON"]
+                },
+                { 
+                    title: "Broccoli Cheese Soup", 
+                    image: "https://www.allrecipes.com/thmb/IIqS6AAQ0unROyObA2q2XXiWbKk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Broccoli-Cheese-Soup-by-LovelyKidlets-6b1b1cba28dd424090d7342fbf11c8b9.jpg", 
+                    price: 199.99,
+                    rating: 4.7, 
+                    details: "A Brocoli Cheese Soup filled with magical gold dust and healing factor", 
+                    comments: ["Expensive yet tasty"]
+                }
+            ]
+        };
+        
+        
+
+        function updateCartDisplay() {
+            document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
             
-        };
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <h4>${item.title}</h4>
+                            <p>$${item.price} x ${item.quantity}</p>
+                        </div>
+                        <span class="remove-item" onclick="removeFromCart(${index})">&times;</span>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
 
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('active');
+        }
 
-        const playlists = {
-            spring:"https://open.spotify.com/embed/playlist/15lesHzhv9X0fbEWztEYon",
-            summer: "https://open.spotify.com/embed/playlist/37i9dQZF1DX0h0QnLkMBl4"
-        };
+        function addToCart(dish) {
+            const existingItem = cart.find(item => item.title === dish.title);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({...dish, quantity: 1});
+            }
+            updateCartDisplay();
+        }
 
-        const heroImages = {
-            spring: "fox.jpeg",
-            summer: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-        };
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
 
-        const params = new URLSearchParams(window.location.search);
-        const season = params.get("season") || "spring";
-        document.getElementById("hero-section").style.background = `url(${heroImages[season]}) center/cover no-repeat`;
+        function checkout() {
+            alert('Thank you for your order! Total: $' + document.getElementById('cart-total').textContent);
+            cart = [];
+            updateCartDisplay();
+            toggleCart();
+        }
 
-        const playlistIframe = document.getElementById("playlist-iframe");
-        playlistIframe.src = playlists[season];
-
-        const dishGrid = document.getElementById("dish-grid");
-        dishes[season].forEach(dish => {
-            dishGrid.innerHTML += `<div class="dish-card">
-                <img src="${dish.image}" class="dish-img">
-                <div class="dish-content">
-                    <h3 class="dish-title">${dish.title}</h3>
-                    <p class="dish-details">${dish.details}</p>
-                    <p class="rating">⭐ ${dish.rating}</p>
-                    <p class="preview-comments">"${dish.comments[0]}" - "${dish.comments[1]}"</p>
-                    <a href="${dish.link}" class="cta-btn">Read More</a>
-                    
+        // Initialize dishes
+        const dishGrid = document.getElementById('dish-grid');
+        dishes.winter.forEach(dish => {
+            dishGrid.innerHTML += `
+                <div class="dish-card">
+                    <img src="${dish.image}" class="dish-img" alt="${dish.title}">
+                    <div class="dish-content">
+                        <h3 class="dish-title">${dish.title}</h3>
+                        <p class="dish-details">${dish.details}</p>
+                        <p class="rating">⭐ ${dish.rating}</p>
+                        <p class="preview-comments">"${dish.comments[0]}"</p>
+                        <button class="cta-btn" onclick="addToCart(${JSON.stringify(dish).replace(/"/g, '&quot;')})">
+                            Add to Cart - $${dish.price}
+                        </button>
+                    </div>
                 </div>
-            </div>`;
+            `;
         });
-        
-        // Smooth scroll for navigation
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        
-        anchor.addEventListener('click', function (e) {
-        
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-        
-        behavior: 'smooth'
-        
-        });
-        
-        });
-        
-        });
-        
-        
-        // Newsletter form submission
-        
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-        
-        e.preventDefault();
-        
-        const email = this.querySelector('input').value;
-        
-        alert(`Thanks for subscribing! We've sent a confirmation to ${email}`);
-        
-        this.reset();
-        
-        });
-        
-    </script>
 
+        // Initialize cart
+        updateCartDisplay();
+
+        // Newsletter form handler
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thanks for subscribing! We've sent a confirmation to ${email}`);
+            this.reset();
+        });
+    </script>
 </body>
 </html>
