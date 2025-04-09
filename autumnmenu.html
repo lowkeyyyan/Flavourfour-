@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn Menu | FlavourFour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #E55124;
+            --secondary-color: #FF7B35;
+            --accent-color: #67C3FD;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #FF7B35;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .container {
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dish-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            padding: 1rem;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .dish-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .dish-content {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .dish-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .dish-details {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.7rem;
+        }
+
+        .rating {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-comments {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-btn, .back-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 1rem auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        .cta-btn:hover, .back-btn:hover {
+            background-color: #FFD700;
+            color: var(--text-dark);
+        }
+
+        .playlist {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+            url('fol.jpg'); 
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color:  #FFD700;
+        }
+
+        .newsletter {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            width: 70%;
+            padding: 1rem;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            width: 30%;
+            padding: 1rem;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            background-color:  #FFC100;
+            color: var(--text-dark);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) 
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+          
+            
+            .newsletter-input,
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 25px;
+                margin: 0.5rem 0;
+            }
+    
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-color);
+            color: var(--text-dark);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 70px;
+            right: -400px;
+            width: 350px;
+            height: calc(100vh - 70px);
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            padding: 1rem;
+            overflow-y: auto;
+            z-index: 999;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .remove-item {
+            color: #ff4444;
+            cursor: pointer;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">FlavourFour</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#recipes">Recipes</a>
+            <a href="aboutus.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <div class="cart-modal" id="cart-modal">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+        <button class="cta-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="alogo.png" alt="Autumn" width="300" height="300">
+            <h1 class="hero-title">Autumn's Harvest</h1>
+            <p>Warm, hearty meals made with the best of the season. Feel the coziness!</p>
+            <a href="flavour4.html" class="cta-btn">Return to Homepage</a>
+        </div>
+    </section>
+
+    <section id="recipes" class="container">
+        <div class="playlist">
+            <h3>Now Playing: Autumn Vibes</h3>
+            <iframe src="https://open.spotify.com/embed/playlist/2RcdymgHVf0inKzNogU227" id="playlist-iframe" width="100%" height="80" frameborder="0" ></iframe>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="section-title">Top 10 Best Featured Winter Dishes</h2>
+        <div class="dish-grid" id="dish-grid"></div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Subscribe to Our Seasonal Newsletter</h2>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2025 FlavourFour. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+       const dishes = {
+       winter: [
+       { 
+       title: "Butternut Squash Soup", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIewOCVo89pHaopFfQYo2Bs2sPi0wpUgnm9xR91gFKF9TN0VX3dPghhM&s=10", 
+       price: 8.49,
+       rating: 4.7, 
+       details: "A creamy soup made with roasted butternut squash and autumn spices", 
+       comments: ["Warm and cozy!", "Tastes like fall in a bowl"],
+       link: "adish1.html"
+       },
+       { 
+       title: "Apple Walnut Salad", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZxcx_KAeNx_TQ9KVLcB5fYFh7jbw609XPbiJEzb157IWPB0tH4kPJFsQ&s=10", 
+       price: 9.99,
+       rating: 4.5, 
+       details: "Fresh apples, walnuts, and mixed greens tossed in a maple vinaigrette", 
+       comments: ["Sweet and crunchy!", "Great seasonal salad"],
+       link: "adish2.html"
+       },
+       { 
+       title: "Pumpkin Ravioli", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4XIELtQc0HFNQUmYg0zeN27iwHHX2mSyMxTqR31_r-PxwAKnN8BXrrbSG&s=10", 
+       price: 14.99,
+       rating: 4.6, 
+       details: "Ravioli filled with creamy pumpkin and served with sage butter", 
+       comments: ["Very comforting!", "Perfect autumn dish"],
+       link: "adish3.html"
+       },
+       { 
+       title: "Maple Glazed Chicken", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYvXDvAAlUajJIZHVhl2LlmtxCaz-86XVK8qnOIrEFEbKoT_ekoNM5cdS1&s=10", 
+       price: 13.49,
+       rating: 4.4, 
+       details: "Grilled chicken breast with a sweet maple glaze and roasted vegetables", 
+       comments: ["Sweet and savory!", "Loved the glaze!"],
+       link: "adish4.html"
+       },
+       { 
+       title: "Stuffed Acorn Squash", 
+       image: "https://untiedts.com/cdn/shop/articles/Baked_Acorn_Squash_Wild_Rice.png?v=1706289192", 
+       price: 12.99,
+       rating: 4.5, 
+       details: "Roasted acorn squash filled with rice, cranberries, and nuts", 
+       comments: ["Very filling!", "Beautiful presentation"],
+       link: "adish5.html"
+       },
+       { 
+       title: "Carrot Ginger Soup", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEAJs9xUQoeHihT1ge8eTz9KxrYQsXeA2CpD4RhwVmAwU5499p_p4gC-8&s=10", 
+       price: 7.99,
+       rating: 4.3, 
+       details: "Smooth carrot soup with a zing of fresh ginger", 
+       comments: ["Warm and spicy!", "Lovely fall starter"],
+       link: "adish6.html"
+       },
+       { 
+       title: "Roasted Root Vegetables", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkOo5YLn4sLUqpTv8P4yZ6OWjvne-tjDbMn5MohKGIkJ05NqkEVTUYNI4&s=10", 
+       price: 9.49,
+       rating: 4.2, 
+       details: "A mix of roasted carrots, potatoes, beets, and parsnips", 
+       comments: ["Earthy and hearty!", "Perfect side dish"],
+       link: "adish7.html"
+       },
+       { 
+       title: "Cranberry Glazed Meatballs", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIhtZJ00flmlYaYvmUSf01xogfRjV7Et34wG5boTR35JtpgC8jtiErf6c&s=10", 
+       price: 10.99,
+       rating: 4.4, 
+       details: "Savory meatballs coated in a tangy cranberry glaze", 
+       comments: ["Sweet and tangy!", "A hit at parties!"],
+       link: "adish8.html"
+       },
+       { 
+       title: "Turkey and Brie Sandwich", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTV-fu4t4KeGobhpl2ODQ1ndZIK2pxXpiackuZw-91YMkjQC-eLx1OkRvw&s=10", 
+       price: 11.99,
+       rating: 4.5, 
+       details: "Roasted turkey with melted brie and cranberry sauce on a ciabatta roll", 
+       comments: ["Great fall sandwich!", "Rich and flavorful"],
+       link: "adish9.html"
+       },
+       { 
+       title: "Pecan Pie Bars", 
+       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUlPKKIU7uYvlK-3QT0j6a89VTKemKyysnnZcgrZn_gq7qTxVTnHO08q8&s=10", 
+       price: 5.99,
+       rating: 4.8, 
+       details: "Buttery crust topped with pecan filling – just like pie in bar form", 
+       comments: ["So good!", "A fall classic!"],
+       link: "adish10.html"
+       }
+       ]
+       };
+       
+        
+      
+
+        function updateCartDisplay() {
+            document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <h4>${item.title}</h4>
+                            <p>$${item.price} x ${item.quantity}</p>
+                        </div>
+                        <span class="remove-item" onclick="removeFromCart(${index})">&times;</span>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-modal').classList.toggle('active');
+        }
+
+        function addToCart(dish) {
+            const existingItem = cart.find(item => item.title === dish.title);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({...dish, quantity: 1});
+            }
+            updateCartDisplay();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        function checkout() {
+            alert('Thank you for your order! Total: $' + document.getElementById('cart-total').textContent);
+            cart = [];
+            updateCartDisplay();
+            toggleCart();
+        }
+
+        // Initialize dishes
+        const dishGrid = document.getElementById('dish-grid');
+        dishes.winter.forEach(dish => {
+            dishGrid.innerHTML += `
+                <div class="dish-card">
+                    <img src="${dish.image}" class="dish-img" alt="${dish.title}">
+                    <div class="dish-content">
+                        <h3 class="dish-title">${dish.title}</h3>
+                        <p class="dish-details">${dish.details}</p>
+                        <p class="rating">⭐ ${dish.rating}</p>
+                        <p class="preview-comments">"${dish.comments[0]}"</p>
+                        <button class="cta-btn" onclick="addToCart(${JSON.stringify(dish).replace(/"/g, '&quot;')})">
+                            Add to Cart - $${dish.price}
+                        </button>
+                       <button class="cta-btn" onclick="window.location.href='${dish.link}'"> Read More </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Initialize cart
+        updateCartDisplay();
+        
+        // Smooth scroll for navigation
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        
+        anchor.addEventListener('click', function (e) {
+        
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        
+        behavior: 'smooth'
+        
+        });
+        
+        });
+        
+        });
+        
+        
+
+        // Newsletter form handler
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thanks for subscribing! We've sent a confirmation to ${email}`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
